@@ -1,1 +1,3 @@
-John Doe@65@Mild@
+John Doe@65@Mild@20/01/2010
+Sara Jane@33@Severe@15/08/2018
+Marshal Jones@26@HighlyCritical#27/03/2021
