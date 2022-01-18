@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -41,6 +42,12 @@ public class Clientside {
             }
             outServer.writeUTF(Menu.values()[choice].toString());
             
+            List<Patient> patients = (List<Patient>)inServer.readObject();
+            System.out.print( "Name\tAge\t\tCondition\t\tAdmission Date" );
+            for(Patient ps: patients){
+                System.out.print(ps.toString());
+            }
+            displayMenu();
             
         }
     }
