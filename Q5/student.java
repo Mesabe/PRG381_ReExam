@@ -33,4 +33,9 @@ public class student {
         this.campname = campname;
     }
     
+    @Override
+    public String toString() {
+       
+        return String.format("%10s%35s%15s",getSurname(),getProjname(),getCampname());
+    }
 }

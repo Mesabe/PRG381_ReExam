@@ -80,7 +80,7 @@ public class Serverside {
             while (sc.hasNext()) {
                 line = sc.nextLine();
                 String[] values = line.split("@");
-                ps.add(new Patient(values[0], values[1], values[2], values[3]));
+                ps.add(new Patient(values[0], values[1], values[2], Date.parse(values[3])));
                 
             }
             sc.close();
