@@ -25,13 +25,12 @@ public class Serverside {
                     outClient.writeObject(getAllPatients());
                     break;
                 case "DISPLAY_Condition":
-                    displayConditions();
-                    input = inClient.readUTF();
+                    input = inClient.readUTF() ;
                     switch (input) {
                         case "HighlyCritical":
                             List<Patient> psHC = new ArrayList<>();
                             for (Patient ps : getAllPatients()) {
-                                if (ps.getPcondition() == "Mild") {
+                                if (ps.getPcondition() == "HighlyCritical") {
                                     psHC.add(ps);
                                 }
                             }
@@ -40,7 +39,7 @@ public class Serverside {
                         case "Severe":
                             List<Patient> psS = new ArrayList<>();
                             for (Patient ps : getAllPatients()) {
-                                if (ps.getPcondition() == "Mild") {
+                                if (ps.getPcondition() == "Severe") {
                                     psS.add(ps);
                                 }
                             }
@@ -93,12 +92,6 @@ public class Serverside {
     }
 
 
-    public static void displayConditions(){
-        System.out.println("\nMain Menu:");
-        for(int i = 0;i<Conditions.values().length;i++){
-            System.out.println(i+") "+Conditions.values()[i]);
-        }
-        System.out.print("Your choice: ");
-    }
+    
     
 }

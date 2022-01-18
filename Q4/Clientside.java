@@ -19,13 +19,30 @@ public class Clientside {
 
 
     public static void main(String[] args) throws Exception, IOException, UnknownHostException {
-        Scanner sc = new Scanner(System.in);
         Socket cs = new Socket("127.0.0.1",8080);
 
         DataOutputStream outServer = new DataOutputStream(cs.getOutputStream());
-        ObjectInputStream in = new ObjectInputStream(cs.getInputStream());
+        ObjectInputStream inServer = new ObjectInputStream(cs.getInputStream());
 
-        
+        Scanner sc = new Scanner(System.in);
+        displayMenu();
+        int choice = 0;
+        while(Menu.values()[choice] != Menu.EXIT){
+            choice = sc.nextInt();
+            if (Menu.values()[choice] == Menu.DISPLAY_Condition) {
+                displayConditions();
+                outServer.writeUTF(Menu.values()[choice].toString());
+                choice = sc.nextInt();
+            }
+            if(Menu.values()[choice] == Menu.EXIT){
+                outServer.writeUTF(Menu.values()[choice].toString());
+                cs.close();
+                break;
+            }
+            outServer.writeUTF(Menu.values()[choice].toString());
+            
+            
+        }
     }
 
 
@@ -33,6 +50,14 @@ public class Clientside {
         System.out.println("\nMain Menu:");
         for(int i = 0;i<Menu.values().length;i++){
             System.out.println(i+") "+Menu.values()[i]);
+        }
+        System.out.print("Your choice: ");
+    }
+
+    public static void displayConditions(){
+        System.out.println("\nMain Menu:");
+        for(int i = 0;i<Conditions.values().length;i++){
+            System.out.println(i+") "+Conditions.values()[i]);
         }
         System.out.print("Your choice: ");
     }
