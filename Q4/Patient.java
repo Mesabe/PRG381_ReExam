@@ -8,10 +8,10 @@ public class Patient implements Serializable
     private String pname;
     private int page;
     private String pcondition;
-    private Date pADate;
+    private String pADate;
 
 
-    public Patient(String pname, int page, String pcondition, Date pADate) {
+    public Patient(String pname, int page, String pcondition, String pADate) {
         this.pname = pname;
         this.page = page;
         this.pcondition = pcondition;
@@ -22,10 +22,10 @@ public class Patient implements Serializable
     public String getPname() {
         return pname;
     }
-    public Date getpADate() {
+    public String getpADate() {
         return pADate;
     }
-    public void setpADate(Date pADate) {
+    public void setpADate(String pADate) {
         this.pADate = pADate;
     }
     public String getPcondition() {
@@ -47,6 +47,6 @@ public class Patient implements Serializable
     @Override
     public String toString() {
         
-        return String.format(getPname() +"\t"+ getPage() + "\t\t" + getPcondition() + "\t\t" + getpADate()  );
+        return String.format(getPname() +"\t"+ Integer.toString(getPage()) + "\t\t" + getPcondition() + "\t\t" + getpADate()  );
     }
 }
