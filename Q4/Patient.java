@@ -1,6 +1,7 @@
 package Q4;
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.util.Date;
 
 public class Patient implements Serializable
@@ -8,10 +9,11 @@ public class Patient implements Serializable
     private String pname;
     private String page;
     private String pcondition;
-    private String pADate;
+    private Date pADate;
+    private int dayshere;
 
 
-    public Patient(String pname, String page, String pcondition, String pADate) {
+    public Patient(String pname, String page, String pcondition, Date pADate) {
         this.pname = pname;
         this.page = page;
         this.pcondition = pcondition;
@@ -19,14 +21,28 @@ public class Patient implements Serializable
     }
 
     
+    public int getDayshere() {
+        return dayshere;
+    }
+
+
+    public void setDayshere(int dayshere) {
+        
+      this.dayshere = dayshere;
+    }
+
+
     public String getPname() {
         return pname;
     }
-    public String getpADate() {
+    public Date getpADate() {
         return pADate;
     }
-    public void setpADate(String pADate) {
+    public void setpADate(Date pADate) {
         this.pADate = pADate;
+        int days =0 ;
+        days = Date.from(pADate,System.currentTimeMillis());
+        setDayshere(days);
     }
     public String getPcondition() {
         return pcondition;

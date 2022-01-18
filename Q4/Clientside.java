@@ -43,7 +43,7 @@ public class Clientside {
             outServer.writeUTF(Menu.values()[choice].toString());
             
             List<Patient> patients = (List<Patient>)inServer.readObject();
-            System.out.print( "Name\tAge\t\tCondition\t\tAdmission Date" );
+            System.out.print( "Name\tAge\t\tCondition\t\tAdmission Date\tdays" );
             for(Patient ps: patients){
                 System.out.print(ps.toString());
             }
